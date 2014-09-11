@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
     <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
@@ -59,7 +59,7 @@
 <h2>
 <a name="fork" class="anchor" href="#fork"><span class="octicon octicon-link"></span></a>Fork</h2>
 
-<p>这个fork整合了PIE修改版的PIE，从而让IE6-9获得css3的选择器之外，或获得了圆角、阴影、渐变色资源等css3属性的支持</p>
+<p>这个fork整合了<a href="https://github.com/gucong3000/PIE">修改版的PIE</a>，从而让IE6-9获得css3的选择器之外，或获得了圆角、阴影、渐变色资源等css3属性的支持</p>
 
 <blockquote>
 <p>再也不用为迁就低版本IE而额外写代码了，直接按照现代浏览器标准写，最后加入selectivizr即可。一个字，爽！</p>
@@ -78,15 +78,16 @@
 <a name="%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8" class="anchor" href="#%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8"><span class="octicon octicon-link"></span></a>功能列表</h2>
 
 <ul>
-<li>圆角(border-radius)</li>
-<li>盒阴影(box-shadow)</li>
-<li>边框图(border-image)</li>
-<li>线性背景渐变，IE6+支持单一线性渐变，IE9下完全支持</li>
+<li><a href="http://gucong3000.github.io/css-book/properties/border/border-radius.htm">圆角(border-radius)</a></li>
+<li><a href="http://gucong3000.github.io/css-book/properties/border/box-shadow.htm">盒阴影(box-shadow)</a></li>
+<li><a href="http://gucong3000.github.io/css-book/properties/border/border-image.htm">边框图(border-image)</a></li>
+<li><a href="http://gucong3000.github.io/css-book/values/image/linear-gradient%28%29.htm">线性背景渐变(linear-gradient)</a></li>
 <li>display: inline-block; (为IE6-IE7提供支持)</li>
 <li>position: fixed (IE6， 部分支持，自动以<code>absolute</code>替换)</li>
 <li>IE6下png图片透明(如果未使用其他css3属性，单纯需要修复IE6 png问题，可在css中写入：<code>-pie-png-fix: true;</code>)</li>
-<li>相对长度单位: vw, vh, vmin, vmax，rem</li>
-<li>css选择符(建议与nwmatcher共同使用时)。<a href="http://selectivizr.com/#how">详见selectivizr官方网站</a> </li>
+<li>相对长度单位: <a href="http://gucong3000.github.io/css-book/values/length/vw.htm">vw</a>, <a href="http://gucong3000.github.io/css-book/values/length/vh.htm">vh</a>, <a href="http://gucong3000.github.io/css-book/values/length/vmin.htm">vmin</a>, <a href="http://gucong3000.github.io/css-book/values/length/vmax.htm">vmax</a>, <a href="http://gucong3000.github.io/css-book/values/length/rem.htm">rem</a>
+</li>
+<li>css选择符(建议与nwmatcher共同使用)。<a href="http://selectivizr.com/#how">详见selectivizr官方网站</a> </li>
 </ul><h2>
 <a name="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="octicon octicon-link"></span></a>注意事项</h2>
 
