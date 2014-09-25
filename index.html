@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 
     <script type="text/javascript" src="javascripts/modernizr.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function () {
@@ -52,11 +52,6 @@
 <p><strong>CSS3 for IE 6-9</strong></p>
 
 <h2>
-<a name="selectivizr-1" class="anchor" href="#selectivizr-1"><span class="octicon octicon-link"></span></a>Selectivizr</h2>
-
-<p>Selectivizr是一个为IE6-8提供css3选择器的js库，他的官方网站是：<a href="http://selectivizr.com/">http://selectivizr.com/</a></p>
-
-<h2>
 <a name="fork" class="anchor" href="#fork"><span class="octicon octicon-link"></span></a>Fork</h2>
 
 <p>这个fork整合了<a href="https://github.com/gucong3000/PIE">修改版的PIE</a>，从而让IE6-9获得css3的选择器之外，或获得了圆角、阴影、渐变色资源等css3属性的支持</p>
@@ -70,7 +65,7 @@
 <h2>
 <a name="%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="octicon octicon-link"></span></a>使用方式：</h2>
 
-<p><code>PIE.htc</code>、<code>PIE_IE9.js</code>、<code>PIE_IE678.js</code>、<code>selectivizr.js</code> 将这4个文件，放在js目录下，然后页面加入：</p>
+<p><a href="PIE.htc">PIE.htc</a>、<a href="PIE_IE9.js">PIE_IE9.js</a>、<a href="PIE_IE678.js">PIE_IE678.js</a>、<a href="selectivizr.js">selectivizr.js</a> 将这4个文件，放在js目录下，然后页面加入：</p>
 
 <div class="highlight highlight-HTML"><pre><span class="c">&lt;!--[if lte IE 9]&gt;</span>
 <span class="c">    &lt;script src="js/selectivizr.js"&gt;&lt;/script&gt;</span>
@@ -85,6 +80,9 @@
 <li><a href="http://gucong3000.github.io/css-book/properties/border/box-shadow.htm">盒阴影(box-shadow)</a></li>
 <li><a href="http://gucong3000.github.io/css-book/properties/border/border-image.htm">边框图(border-image)</a></li>
 <li><a href="http://gucong3000.github.io/css-book/values/image/linear-gradient%28%29.htm">线性背景渐变(linear-gradient)</a></li>
+<li>
+<a href="http://www.w3.org/TR/css3-mediaqueries/">媒体查询(mediaqueries)</a> 除了普通的媒体查询，还可以这样使用：<code>@media all and(msie:8) {}</code>、<code>@media all and(min-msie:8) {}</code>、<code>@media all and(max-msie:8) {}</code>
+</li>
 <li>display: inline-block; (为IE6-IE7提供支持)</li>
 <li>position: fixed (IE6， 部分支持，自动以<code>absolute</code>替换)</li>
 <li>IE6下png图片透明(如果未使用其他css3属性，单纯需要修复IE6 png问题，可在css中写入：<code>-pie-png-fix: true;</code>)</li>
@@ -98,7 +96,7 @@
 <li>不支持style属性中的行内样式。</li>
 <li>如果需要本地双击html文件方式使用，请在Selectivizr前加载jQuery。</li>
 <li>出现元素抖动或者背景及边框消失的情况，请用 <code>position: relative; zoom: 1;</code> 方式修正，加给元素本身或其父元素。</li>
-<li>IE6-8下，如果中有<code>&lt;style&gt;</code>标签，将会有ajax get请求获取原始的html(也可将html escape编码后放入<code>&lt;script&gt;</code>标签中传入，以避免ajax)。</li>
+<li>IE6-8下，应该尽量避免使用<code>&lt;style&gt;</code>标签。</li>
 <li>如果服务器环境的content-type配置不正确，可能造成css3属性不生效。如Apache，可在<code>.htaccess</code>文件中添加一行<code>AddType text/x-component .htc</code>即可解决此问题。</li>
 </ul>
       </section>
@@ -116,7 +114,7 @@
       </footer>
 
     </div>
-    <iframe src="tests/doraemon_css3.html" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
+
     
   </body>
 </html>
