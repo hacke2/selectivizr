@@ -67,15 +67,14 @@
 
 <p><a href="PIE.htc">PIE.htc</a>、<a href="PIE_IE9.js">PIE_IE9.js</a>、<a href="PIE_IE678.js">PIE_IE678.js</a>、<a href="selectivizr.js">selectivizr.js</a> 将这4个文件，放在js目录下，然后页面加入：</p>
 
-<div class="highlight highlight-HTML"><pre><span class="c">&lt;!--[if lte IE 9]&gt;</span>
-<span class="c">    &lt;script src="js/selectivizr.js"&gt;&lt;/script&gt;</span>
-<span class="c">&lt;![endif]--&gt;</span>
+<div class="highlight highlight-HTML"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/selectivizr.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </pre></div>
 
 <h2>
 <a name="%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8" class="anchor" href="#%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8"><span class="octicon octicon-link"></span></a>功能列表</h2>
 
 <ul>
+<li><a href="http://leaverou.github.io/prefixfree/">css3免前缀</a></li>
 <li><a href="http://gucong3000.github.io/css-book/properties/border/border-radius.htm">圆角(border-radius)</a></li>
 <li><a href="http://gucong3000.github.io/css-book/properties/border/box-shadow.htm">盒阴影(box-shadow)</a></li>
 <li><a href="http://gucong3000.github.io/css-book/properties/border/border-image.htm">边框图(border-image)</a></li>
@@ -89,7 +88,7 @@
 <li>相对长度单位: <a href="http://gucong3000.github.io/css-book/values/length/vw.htm">vw</a>, <a href="http://gucong3000.github.io/css-book/values/length/vh.htm">vh</a>, <a href="http://gucong3000.github.io/css-book/values/length/vmin.htm">vmin</a>, <a href="http://gucong3000.github.io/css-book/values/length/vmax.htm">vmax</a>, <a href="http://gucong3000.github.io/css-book/values/length/rem.htm">rem</a>
 </li>
 <li>css选择符(建议与nwmatcher共同使用)。<a href="http://selectivizr.com/#how">详见selectivizr官方网站</a> </li>
-<li>IE9下自动为<a href="http://gucong3000.github.io/css-book/properties/transform/transform.htm">transform</a>、<a href="http://gucong3000.github.io/css-book/properties/transform/transform-origin.htm">transform-origin</a>属性添加前缀<code>-ms-</code>， 自动关掉与css3属性冲突的几个滤镜(Alpha|Matrix|Gradient|FlipH|FlipV)</li>
+<li>IE9下自动关掉与css3属性冲突的几个滤镜(Alpha|Matrix|Gradient|FlipH|FlipV)</li>
 </ul><h2>
 <a name="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" class="anchor" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="octicon octicon-link"></span></a>注意事项</h2>
 
