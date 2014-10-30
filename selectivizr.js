@@ -125,6 +125,13 @@ References:
 		return script;
 	}
 
+	function forEach(fn, array) {
+		array = array || doc.styleSheets;
+		for (var i = array.length - 1; i >= 0; i--) {
+			fn(array[i], i);
+		}
+	}
+
 	function vunits(css, raw, ele) {
 		if (ele) {
 			var url = ele.getAttribute("href") || ele.getAttribute("data-href");
@@ -161,20 +168,16 @@ References:
 				"%": 0.12,
 				em: 12,
 				ex: 6
-			},
-			stylesheet,
-			cssText;
+			};
 
-		if(units[rem[2]]){
+		if (units[rem[2]]) {
 			rem[1] = rem[1] * units[rem[2]];
 			rem[2] = "pt";
 		} else {
 			rem[1] = parseFloat(rem[1]);
 		}
-
-		for (var c = 0; c < doc.styleSheets.length; c++) {
-			stylesheet = doc.styleSheets[c];
-			cssText = stylesheet[strRawCssText];
+		forEach(function(stylesheet) {
+			var cssText = stylesheet[strRawCssText];
 			if (cssText) {
 				cssText = vunits(cssText);
 				if (ieVersion < 9) {
@@ -195,7 +198,7 @@ References:
 				}
 				stylesheet.cssText = cssText;
 			}
-		}
+		});
 	}
 
 	// =========================== Patching ================================
@@ -269,9 +272,10 @@ References:
 		// IE CSS3 selector
 		return ieVersion > 8 ? cssText : cssText.replace(RE_PSEUDO_ELEMENTS, PLACEHOLDER_STRING).
 			replace(RE_SELECTOR_GROUP, function(m, prefix, selectorText) {
-				var selectorGroups = selectorText.split(",");
-				for (var c = 0, cs = selectorGroups.length; c < cs; c++) {
-					var selector = normalizeSelectorWhitespace(selectorGroups[c]) + SPACE_STRING;
+
+				var selectorGroups = [];
+				forEach(function(selector, c) {
+					selector = normalizeSelectorWhitespace(selector) + SPACE_STRING;
 					var patches = [];
 					selectorGroups[c] = selector.replace(RE_SELECTOR_PARSE,
 						function(match, combinator, pseudo, attribute, index) {
@@ -292,7 +296,8 @@ References:
 							}
 						}
 					);
-				}
+				}, selectorText.split(","));
+
 				return prefix + selectorGroups.join(",");
 			});
 	}
@@ -645,36 +650,31 @@ References:
 				}
 				var $ = win.jQuery,
 					timer;
-				if($){
+				if ($) {
 					timer = setTimeout(start, 800);
 					$(start);
-				}else {
+				} else {
 					start();
 				}
 				node.runtimeStyle.behavior = "none";
 			};
 		}
 
-		var styles = doc.getElementsByTagName("style"),
-			styleSheet,
-			rawCssText,
-			url,
-			i;
-		for (i = styles.length - 1; i >= 0; i--) {
-			rawCssText = styles[i].innerHTML;
-			styleSheet = styles[i].styleSheet;
+		forEach(function(style) {
+			var rawCssText = style.innerHTML,
+				styleSheet = style.styleSheet;
 			if (!(strRawCssText in styleSheet)) {
 				styleSheet[strRawCssText] = patchStyleSheet(rawCssText);
 			}
-		}
+		}, doc.getElementsByTagName("style"));
 
-		for (i = doc.styleSheets.length - 1; i >= 0; i--) {
-			styleSheet = doc.styleSheets[i];
-			url = styleSheet.href;
+		forEach(function(styleSheet) {
+			var url = styleSheet.href;
 			if (url && !(strRawCssText in styleSheet)) {
 				styleSheet[strRawCssText] = patchStyleSheet(parseStyleSheet(resolveUrl(url) || url));
 			}
-		}
+		});
+
 		setLengthUnits();
 	}
 
@@ -804,10 +804,10 @@ References:
 
 			// If IE and not a frame
 			// continually check to see if the document is ready
-			var top = false;
+			var top;
 
 			try {
-				top = win.frameElement == null && root;
+				top = !win.frameElement && root;
 			} catch(e) {}
 
 			if ( top && top.doScroll ) {
