@@ -3,8 +3,6 @@ Selectivizr
 
 **CSS3 for IE 6-9**
 
-## [点击这里查看DEMO](http://www.hacke2.cn/demo/selectivizr/tests/doraemon_css3.html)
-
 ## Fork ##
 
 这个fork整合了[修改版的PIE](https://github.com/gucong3000/PIE)，从而让IE6-9获得css3的选择器之外，或获得了圆角、阴影、渐变色资源等css3属性的支持
